@@ -1,0 +1,382 @@
+/* ==============================================
+   noticia.css — Estilo para páginas de notícias
+   Colégio São Rafael
+   ============================================== */
+
+
+/* --- Header da notícia --- */
+
+#cabecalho-noticia {
+  margin-bottom: 2rem;
+  position: relative;
+}
+
+.voltar-pagina {
+  display: inline-block;
+  margin-bottom: 1.5rem;
+  color: #2D5A3D;
+  text-decoration: none;
+  font-size: 0.95rem;
+  font-family: Arial, sans-serif;
+  padding: 0.5rem 0;
+  border-bottom: 2px solid transparent;
+  transition: border-color 0.2s ease;
+}
+
+.voltar-pagina:hover {
+  border-bottom-color: #2D5A3D;
+}
+
+.voltar {
+  display: inline-block;
+  margin-bottom: 1.5rem;
+  color: #2D5A3D;
+  text-decoration: none;
+  font-size: 0.95rem;
+  font-family: Arial, sans-serif;
+  padding: 0.5rem 0;
+  border-bottom: 2px solid transparent;
+  transition: border-color 0.2s ease;
+}
+
+.voltar:hover {
+  border-bottom-color: #2D5A3D;
+}
+
+#cabecalho-noticia h1 {
+  font-size: 2rem;
+  font-weight: 500;
+  line-height: 1.3;
+  color: #1C1A14;
+  margin-bottom: 0.5rem;
+}
+
+
+/* --- Imagem principal --- */
+
+.noticia-imagem-principal {
+  margin: 0 0 2rem;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.noticia-imagem-principal img {
+  width: 100%;
+  height: auto;
+  display: block;
+  max-height: 400px;
+  object-fit: cover;
+}
+
+.noticia-imagem-principal figcaption {
+  padding: 1rem 1.5rem;
+  background-color: #f5f2eb;
+  color: #6B6558;
+  font-size: 0.85rem;
+  font-style: italic;
+  font-family: Arial, sans-serif;
+}
+
+
+/* --- Informações metadados --- */
+
+.noticia-info {
+  background-color: #f5f2eb;
+  border-left: 4px solid #2D5A3D;
+  padding: 1.5rem;
+  border-radius: 8px;
+  margin-bottom: 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.info-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  flex: 1 1 auto;
+  min-width: 0;
+}
+
+.meta-bloco {
+  flex: 1 1 150px;
+}
+
+.noticia-info .meta-label {
+  font-size: 0.7rem;
+  color: #6B6558;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-bottom: 0.3rem;
+  display: block;
+  font-family: Arial, sans-serif;
+}
+
+.noticia-info .meta-valor {
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: #1C1A14;
+}
+
+.noticia-info .badge {
+  flex-shrink: 0;
+}
+
+
+/* --- Conteúdo principal --- */
+
+.noticia-conteudo {
+  max-width: 900px;
+  margin-bottom: 3rem;
+}
+
+.noticia-conteudo section {
+  margin-bottom: 2.5rem;
+}
+
+.noticia-conteudo section:last-child {
+  margin-bottom: 0;
+}
+
+.noticia-conteudo h2 {
+  font-size: 1.4rem;
+  font-weight: 500;
+  color: #1C1A14;
+  margin-bottom: 1rem;
+  line-height: 1.3;
+}
+
+.noticia-conteudo p {
+  font-size: 0.95rem;
+  line-height: 1.8;
+  color: #3C3A34;
+  margin-bottom: 1rem;
+}
+
+.noticia-conteudo ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+.noticia-conteudo li {
+  font-size: 0.95rem;
+  color: #3C3A34;
+  line-height: 1.8;
+  margin-bottom: 0.75rem;
+  padding-left: 1.5rem;
+  position: relative;
+}
+
+.noticia-conteudo li:before {
+  content: "•";
+  position: absolute;
+  left: 0;
+  color: #2D5A3D;
+  font-weight: bold;
+}
+
+.noticia-conteudo strong {
+  color: #1C1A14;
+  font-weight: 600;
+}
+
+
+/* --- Galeria de fotos --- */
+
+.noticia-galeria {
+  margin-bottom: 3rem;
+  padding: 2rem 0;
+  border-top: 1px solid #E0D9CC;
+  border-bottom: 1px solid #E0D9CC;
+}
+
+.noticia-galeria h2 {
+  font-size: 1.4rem;
+  font-weight: 500;
+  color: #1C1A14;
+  margin-bottom: 1.5rem;
+  line-height: 1.3;
+}
+
+.galeria-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1.5rem;
+}
+
+.galeria-item {
+  background-color: #ffffff;
+  border: 1px solid #E0D9CC;
+  border-radius: 8px;
+  overflow: hidden;
+  margin: 0;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.galeria-item:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+}
+
+.galeria-item img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  display: block;
+}
+
+.galeria-item figcaption {
+  padding: 0.75rem 1rem;
+  font-size: 0.8rem;
+  color: #6B6558;
+  text-align: center;
+  line-height: 1.4;
+  font-family: Arial, sans-serif;
+}
+
+
+/* --- Seções adicionais --- */
+
+.noticia-adicionais,
+.noticia-contato {
+  background-color: #f5f2eb;
+  border-left: 4px solid #2D5A3D;
+  padding: 1.5rem;
+  border-radius: 8px;
+  margin-bottom: 2rem;
+}
+
+.noticia-adicionais h2,
+.noticia-contato h2 {
+  font-size: 1.2rem;
+  font-weight: 500;
+  color: #1C1A14;
+  margin-bottom: 0.75rem;
+}
+
+.noticia-adicionais p,
+.noticia-contato p {
+  font-size: 0.95rem;
+  color: #3C3A34;
+  line-height: 1.7;
+  margin-bottom: 0.5rem;
+}
+
+.noticia-adicionais p:last-child,
+.noticia-contato p:last-child {
+  margin-bottom: 0;
+}
+
+
+/* --- Footer de notícia --- */
+
+.noticia-footer {
+  padding-top: 2rem;
+  border-top: 1px solid #E0D9CC;
+  text-align: center;
+}
+
+.btn-voltar {
+  display: inline-block;
+  background-color: #2D5A3D;
+  color: #ffffff;
+  padding: 0.75rem 1.5rem;
+  border-radius: 6px;
+  text-decoration: none;
+  font-size: 0.95rem;
+  font-family: Arial, sans-serif;
+  transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+.btn-voltar:hover {
+  background-color: #1f3f2a;
+  transform: translateY(-2px);
+}
+
+
+/* --- Responsividade --- */
+
+@media (max-width: 768px) {
+  #cabecalho-noticia h1 {
+    font-size: 1.5rem;
+  }
+
+  .noticia-info {
+    flex-direction: column;
+  }
+
+  .info-meta {
+    gap: 1.5rem;
+  }
+
+  .meta-bloco {
+    flex: 1 1 120px;
+  }
+
+  .noticia-conteudo h2 {
+    font-size: 1.2rem;
+  }
+
+  .galeria-grid {
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 1rem;
+  }
+
+  .galeria-item img {
+    height: 140px;
+  }
+
+  .noticia-imagem-principal img {
+    max-height: 280px;
+  }
+}
+
+@media (max-width: 480px) {
+  #container {
+    padding: 1rem 1rem 2rem;
+  }
+
+  #cabecalho-noticia h1 {
+    font-size: 1.25rem;
+  }
+
+  .noticia-imagem-principal img {
+    max-height: 220px;
+  }
+
+  .noticia-info {
+    padding: 1rem;
+  }
+
+  .info-meta {
+    gap: 1rem;
+  }
+
+  .galeria-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.75rem;
+  }
+
+  .galeria-item img {
+    height: 120px;
+  }
+
+  .noticia-conteudo p,
+  .noticia-conteudo li {
+    font-size: 0.9rem;
+  }
+
+  .noticia-conteudo h2 {
+    font-size: 1.1rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .btn-voltar {
+    padding: 0.6rem 1.2rem;
+    font-size: 0.88rem;
+  }
+}

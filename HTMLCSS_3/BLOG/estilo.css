@@ -1,0 +1,19 @@
+/* styles.css */
+body {
+background-color: #f0f0f0;
+font-family: Arial, sans-serif;
+}
+h1 {
+color: #007BFF;
+font-size: 3em;
+text-align: center;
+}
+p {
+color: #333;
+line-height: 1.6;
+}
+.importante {
+background-color: #93CB52;
+padding: 15px;
+border-radius: 5px;
+}

@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<!-- DOCTYPE: informa ao navegador que este é um documento HTML5 -->
+
+<html lang="pt-BR">
+<!-- A tag <html> é o elemento raiz da página.
+     O atributo lang="pt-BR" indica o idioma (português do Brasil),
+     o que ajuda leitores de tela e mecanismos de busca. -->
+
+<head>
+  <!-- A tag <head> contém informações SOBRE a página (metadados),
+       mas nada que aparece visualmente no corpo da página. -->
+
+  <meta charset="UTF-8">
+  <!-- charset="UTF-8" garante que caracteres especiais (como acentos e ç)
+       sejam exibidos corretamente. -->
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- viewport torna a página responsiva em dispositivos móveis. -->
+
+  <title>Aula 7 – Formulários e Campos de Texto</title>
+  <!-- A tag <title> define o texto que aparece na aba do navegador. -->
+</head>
+
+<body>
+  <!-- A tag <body> contém todo o conteúdo visível da página. -->
+
+  <!-- =============================================
+       SEÇÃO 1 — CABEÇALHO PRINCIPAL DA AULA
+  ================================================ -->
+
+  <h1>Aula 7: Formulários e Campos de Texto</h1>
+  <!-- <h1> é o título mais importante da página.
+       Deve ser único por página. Os títulos vão de <h1> até <h6>,
+       do mais importante ao menos importante. -->
+
+  <p>
+    Bem-vindos à nossa aula sobre formulários HTML, o principal meio de interação
+    entre usuários e aplicações web. Aprenderemos como estruturar formulários
+    eficientes e acessíveis para coletar informações dos usuários.
+  </p>
+  <!-- <p> define um parágrafo de texto. -->
+
+  <hr>
+  <!-- <hr> cria uma linha horizontal de separação entre seções. -->
+
+
+  <!-- =============================================
+       SEÇÃO 2 — POR QUE USAR FORMULÁRIOS?
+  ================================================ -->
+
+  <h2>Por que usar formulários?</h2>
+  <!-- <h2> é um subtítulo, hierarquicamente abaixo do <h1>. -->
+
+  <p>
+    Formulários são a principal forma de interação entre o usuário e a aplicação web,
+    permitindo a coleta de dados de maneira estruturada e organizada.
+  </p>
+
+  <p>Exemplos de uso no dia a dia:</p>
+
+  <ul>
+    <!-- <ul> cria uma lista NÃO ordenada (com marcadores/bolinhas).
+         Cada item da lista é um <li> (list item). -->
+    <li>
+      <strong>Cadastro de usuários:</strong> coleta de informações pessoais para criação de contas e perfis.
+      <!-- <strong> deixa o texto em negrito e indica importância semântica. -->
+    </li>
+    <li>
+      <strong>Login:</strong> autenticação de usuários para acesso a áreas restritas.
+    </li>
+    <li>
+      <strong>Comentários:</strong> espaço para feedback, avaliações e interações sociais.
+    </li>
+    <li>
+      <strong>Pedidos em lojas virtuais:</strong> preenchimento de dados de entrega e pagamento.
+    </li>
+    <li>
+      <strong>Sistemas de busca:</strong> campos de pesquisa em sites.
+    </li>
+  </ul>
+
+  <hr>
+
+
+  <!-- =============================================
+       SEÇÃO 3 — ESTRUTURA BÁSICA DO FORMULÁRIO
+  ================================================ -->
+
+  <h2>A Estrutura Básica do Formulário</h2>
+
+  <h3>A Tag &lt;form&gt;</h3>
+  <!-- <h3> é um subtítulo de terceiro nível.
+       &lt; e &gt; são "entidades HTML" usadas para exibir os símbolos
+       < e > no texto, sem que o navegador os interprete como código. -->
+
+  <p>
+    A tag <code>&lt;form&gt;</code> é o contêiner principal que agrupa todos os campos
+    do formulário. Ela é o elemento fundamental para qualquer interação baseada em
+    entrada de dados — funciona como um "envelope" que contém todos os campos,
+    seleções e botões.
+  </p>
+  <!-- <code> é usada para exibir trechos de código com formatação especial
+       (geralmente fonte monoespaçada). Indica ao navegador e ao leitor que
+       aquele conteúdo é código, não texto comum. -->
+
+  <p>Atributos essenciais da tag &lt;form&gt;:</p>
+
+  <ul>
+    <li>
+      <code>action</code>: define para qual URL os dados serão enviados após o usuário clicar em "Enviar".
+    </li>
+    <li>
+      <code>method</code>: especifica o método HTTP a ser usado. Os dois mais comuns são:
+      <ul>
+        <!-- Uma lista dentro de outra lista é chamada de lista aninhada. -->
+        <li><strong>GET</strong> — os dados aparecem na URL (visíveis). Usado em buscas.</li>
+        <li><strong>POST</strong> — os dados vão no corpo da requisição (mais seguro). Usado em cadastros e logins.</li>
+      </ul>
+    </li>
+  </ul>
+
+  <p>Exemplo de estrutura básica de um formulário:</p>
+
+  <pre>
+<!-- <pre> preserva espaços e quebras de linha exatamente como escritos.
+     É ideal para exibir blocos de código com indentação. -->
+<code>
+&lt;form action="/enviar-dados.php" method="post"&gt;
+
+  &lt;!-- Aqui vão os campos do formulário --&gt;
+
+  &lt;!-- Botão de envio --&gt;
+  &lt;input type="submit" value="Enviar"&gt;
+
+&lt;/form&gt;
+</code>
+  </pre>
+
+  <hr>
+
+
+  <!-- =============================================
+       SEÇÃO 4 — O CAMPO DE ENTRADA DE DADOS (INPUT)
+  ================================================ -->
+
+  <h2>O Campo de Entrada de Dados</h2>
+
+  <p>
+    A tag <code>&lt;input&gt;</code> é o elemento mais versátil dos formulários.
+    Seu comportamento muda conforme o valor do atributo <code>type</code>.
+    O atributo <code>name</code> é fundamental: ele define o identificador do campo
+    para que o servidor possa reconhecer os dados enviados. Sem ele, o valor inserido
+    pelo usuário não será processado corretamente.
+  </p>
+
+  <h3>Tipos de input mais comuns:</h3>
+
+  <ol>
+    <!-- <ol> cria uma lista ORDENADA (numerada). -->
+
+    <li>
+      <strong>type="text"</strong> — para textos curtos como nome, sobrenome, endereço.
+      <br>
+      <!-- <br> insere uma quebra de linha simples, sem criar um novo parágrafo. -->
+      <code>&lt;input type="text" name="nome"&gt;</code>
+    </li>
+
+    <li>
+      <strong>type="email"</strong> — para endereços de e-mail. O navegador valida
+      automaticamente o formato (ex: precisa conter "@").
+      <br>
+      <code>&lt;input type="email" name="email"&gt;</code>
+    </li>
+
+    <li>
+      <strong>type="password"</strong> — para senhas. O texto digitado é ocultado com asteriscos ou pontos.
+      <br>
+      <code>&lt;input type="password" name="senha"&gt;</code>
+    </li>
+
+    <li>
+      <strong>type="number"</strong> — para números inteiros ou decimais.
+      Exibe controles de incremento e decremento.
+      <br>
+      <code>&lt;input type="number" name="quantidade"&gt;</code>
+    </li>
+
+    <li>
+      <strong>type="date"</strong> — exibe um seletor de calendário para escolher uma data.
+      <br>
+      <code>&lt;input type="date" name="data_nascimento"&gt;</code>
+    </li>
+
+    <li>
+      <strong>type="time"</strong> — permite selecionar um horário específico.
+      <br>
+      <code>&lt;input type="time" name="horario"&gt;</code>
+    </li>
+
+    <li>
+      <strong>type="range"</strong> — cria um controle deslizante para selecionar
+      valores dentro de um intervalo.
+      <br>
+      <code>&lt;input type="range" name="volume" min="0" max="100"&gt;</code>
+    </li>
+
+    <li>
+      <strong>type="submit"</strong> — cria o botão de envio do formulário.
+      <br>
+      <code>&lt;input type="submit" value="Enviar"&gt;</code>
+    </li>
+  </ol>
+
+  <hr>
+
+
+  <!-- =============================================
+       SEÇÃO 5 — ATRIBUTOS ADICIONAIS DO INPUT
+  ================================================ -->
+
+  <h2>Atributos Adicionais Importantes</h2>
+
+  <p>Além do <code>type</code> e do <code>name</code>, os campos de entrada aceitam outros atributos úteis:</p>
+
+  <ul>
+    <li>
+      <strong>placeholder</strong> — texto de exemplo exibido dentro do campo quando ele está vazio.
+      Desaparece quando o usuário começa a digitar.
+      <br>
+      <code>&lt;input type="text" placeholder="Seu nome aqui"&gt;</code>
+    </li>
+
+    <li>
+      <strong>required</strong> — torna o campo obrigatório. O navegador impede o envio
+      do formulário se o campo estiver vazio.
+      <br>
+      <code>&lt;input type="email" required&gt;</code>
+    </li>
+
+    <li>
+      <strong>min</strong> e <strong>max</strong> — definem os valores mínimo e máximo
+      aceitos (usados com type="number" ou type="range").
+      <br>
+      <code>&lt;input type="number" min="1" max="100"&gt;</code>
+    </li>
+  </ul>
+
+  <hr>
+
+
+  <!-- =============================================
+       SEÇÃO 6 — A TAG LABEL
+  ================================================ -->
+
+  <h2>Identificando os Campos: a Tag &lt;label&gt;</h2>
+
+  <p>
+    A tag <code>&lt;label&gt;</code> associa uma descrição textual a um campo do formulário.
+    Ela melhora a experiência do usuário e é essencial para acessibilidade.
+  </p>
+
+  <p>Benefícios de usar &lt;label&gt;:</p>
+
+  <ul>
+    <li>
+      <strong>Acessibilidade:</strong> leitores de tela conseguem identificar o propósito de cada campo,
+      auxiliando pessoas com deficiência visual.
+    </li>
+    <li>
+      <strong>Usabilidade:</strong> ao clicar no texto do rótulo, o campo correspondente recebe o foco
+      automaticamente — muito útil em dispositivos móveis.
+    </li>
+    <li>
+      <strong>Clareza:</strong> torna o formulário mais organizado e compreensível.
+    </li>
+  </ul>
+
+  <p>
+    A associação entre o <code>&lt;label&gt;</code> e o <code>&lt;input&gt;</code> é feita
+    pelos atributos <code>for</code> (no label) e <code>id</code> (no input), que devem
+    ter valores idênticos.
+  </p>
+
+  <p>Exemplo:</p>
+
+  <pre>
+<code>
+&lt;label for="nome"&gt;Nome:&lt;/label&gt;
+&lt;input type="text" id="nome" name="nome"&gt;
+
+&lt;!--
+  O atributo for="nome" no label aponta para o id="nome" no input.
+  Isso cria a associação técnica entre rótulo e campo.
+--&gt;
+</code>
+  </pre>
+
+  <p>
+    <strong>Dica importante:</strong> mesmo que você aplique estilos que visualmente mostrem
+    a relação entre rótulos e campos, a associação técnica via <code>for</code> e <code>id</code>
+    é essencial para usuários de tecnologias assistivas.
+  </p>
+
+  <hr>
+
+
+  <!-- =============================================
+       SEÇÃO 7 — EXERCÍCIO PRÁTICO COM FORMULÁRIO REAL
+  ================================================ -->
+
+  <h2>Exercício Prático: Formulário de Contato</h2>
+
+  <p>
+    A seguir está um formulário completo construído com os conceitos da aula.
+    Cada campo está comentado para explicar o que ele faz.
+  </p>
+
+  <!-- A tag <form> inicia o formulário.
+       action="#" significa "enviar para a própria página" (apenas para demonstração).
+       method="post" é o método mais seguro para enviar dados. -->
+  <form action="#" method="post">
+
+    <!-- CAMPO 1: Nome completo -->
+    <!-- O <label> exibe o rótulo "Nome completo:" para o usuário.
+         O atributo for="nome" vincula este label ao input com id="nome". -->
+    <label for="nome">Nome completo:</label>
+    <br>
+    <!-- <input type="text"> cria um campo de texto simples de uma linha.
+         id="nome" conecta este campo ao label acima.
+         name="nome" é o identificador enviado ao servidor.
+         placeholder mostra um texto de exemplo enquanto o campo está vazio.
+         required torna o campo obrigatório. -->
+    <input type="text" id="nome" name="nome" placeholder="Digite seu nome completo" required>
+    <br><br>
+
+    <!-- CAMPO 2: E-mail -->
+    <label for="email">E-mail:</label>
+    <br>
+    <!-- type="email" ativa a validação automática do formato de e-mail.
+         O navegador verifica se há "@" e um domínio antes de enviar. -->
+    <input type="email" id="email" name="email" placeholder="seuemail@exemplo.com" required>
+    <br><br>
+
+    <!-- CAMPO 3: Data de nascimento -->
+    <label for="data_nascimento">Data de nascimento:</label>
+    <br>
+    <!-- type="date" exibe um calendário para o usuário escolher a data.
+         O formato armazenado é sempre AAAA-MM-DD internamente. -->
+    <input type="date" id="data_nascimento" name="data_nascimento" required>
+    <br><br>
+
+    <!-- CAMPO 4: Quantidade (número) -->
+    <label for="quantidade">Quantidade (entre 1 e 10):</label>
+    <br>
+    <!-- type="number" com min e max limita os valores aceitos.
+         O navegador exibe botões de + e - para incrementar/decrementar. -->
+    <input type="number" id="quantidade" name="quantidade" min="1" max="10" value="1">
+    <br><br>
+
+    <!-- CAMPO 5: Horário preferido -->
+    <label for="horario">Horário preferido para contato:</label>
+    <br>
+    <!-- type="time" exibe um seletor de horas e minutos. -->
+    <input type="time" id="horario" name="horario">
+    <br><br>
+
+    <!-- BOTÃO DE ENVIO -->
+    <!-- type="submit" cria o botão que dispara o envio do formulário.
+         value define o texto exibido no botão. -->
+    <input type="submit" value="Enviar">
+
+  </form>
+  <!-- Aqui termina o formulário. Tudo o que estava dentro da tag <form>
+       será enviado ao clicar no botão submit. -->
+
+  <hr>
+
+
+  <!-- =============================================
+       SEÇÃO 8 — RESUMO DOS CONCEITOS
+  ================================================ -->
+
+  <h2>Resumo dos Conceitos da Aula</h2>
+
+  <table border="1">
+    <!-- <table> cria uma tabela.
+         border="1" exibe bordas nas células (atributo HTML antigo, mas funciona sem CSS).
+         Em projetos modernos, as bordas são controladas por CSS. -->
+
+    <thead>
+      <!-- <thead> agrupa as linhas do cabeçalho da tabela. -->
+      <tr>
+        <!-- <tr> = table row (linha). -->
+        <th>Tag / Atributo</th>
+        <!-- <th> = table header (célula de cabeçalho, em negrito por padrão). -->
+        <th>O que faz</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <!-- <tbody> agrupa as linhas de dados da tabela. -->
+      <tr>
+        <td><code>&lt;form&gt;</code></td>
+        <!-- <td> = table data (célula comum de dados). -->
+        <td>Cria o contêiner do formulário</td>
+      </tr>
+      <tr>
+        <td><code>action</code></td>
+        <td>Define a URL de destino dos dados</td>
+      </tr>
+      <tr>
+        <td><code>method</code></td>
+        <td>Define o método HTTP (GET ou POST)</td>
+      </tr>
+      <tr>
+        <td><code>&lt;input&gt;</code></td>
+        <td>Cria campos de entrada de dados</td>
+      </tr>
+      <tr>
+        <td><code>type</code></td>
+        <td>Define o tipo do campo (text, email, password, date...)</td>
+      </tr>
+      <tr>
+        <td><code>name</code></td>
+        <td>Identificador do campo para o servidor</td>
+      </tr>
+      <tr>
+        <td><code>id</code></td>
+        <td>Identificador único do campo na página</td>
+      </tr>
+      <tr>
+        <td><code>&lt;label&gt;</code></td>
+        <td>Rótulo descritivo associado a um campo</td>
+      </tr>
+      <tr>
+        <td><code>for</code></td>
+        <td>Liga o label ao input pelo id</td>
+      </tr>
+      <tr>
+        <td><code>placeholder</code></td>
+        <td>Texto de exemplo dentro do campo vazio</td>
+      </tr>
+      <tr>
+        <td><code>required</code></td>
+        <td>Torna o campo obrigatório</td>
+      </tr>
+      <tr>
+        <td><code>min</code> / <code>max</code></td>
+        <td>Valores mínimo e máximo para campos numéricos</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <br>
+
+  <p>
+    <em>Aula 7 — Instituto Federal Sul-rio-grandense, Câmpus Bagé.</em>
+  </p>
+  <!-- <em> aplica ênfase ao texto (normalmente itálico). -->
+
+</body>
+<!-- Aqui encerra o body. Todo o conteúdo visível fica entre <body> e </body>. -->
+
+</html>
+<!-- Aqui encerra o documento HTML. -->
